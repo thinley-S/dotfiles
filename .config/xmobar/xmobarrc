@@ -1,0 +1,20 @@
+Config {
+    position = Top,
+    font = "xft:mononoki Nerd Font:size=10",
+    bgColor = "#000000",
+    fgColor = "#ffffff",
+    lowerOnStart = False,
+    overrideRedirect = False,
+    allDesktops = True,
+    persistent = True,
+    commands = [
+        Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10,
+        Run Memory ["-t","Mem: <usedratio>%","-H","8192","-L","4096","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
+        Run Swap ["-t","Swap: <usedratio>%","-H","1024","-L","512","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
+        Run Date "[%a %b %d - %I:%M %p]" "date" 10,
+        Run StdinReader
+    ],
+    sepChar = "%",
+    alignSep = "}{",
+    template = "%StdinReader% }{ %cpu%   %memory%   %swap%   <fc=#ff8c00>%date%</fc>"
+}
